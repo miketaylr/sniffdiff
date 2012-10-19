@@ -1,0 +1,4 @@
+app.com/firefox/2/opera/10/url.com should do something cool
+do a test to make sure the <title> matches the url
+and if the url has paths (e.g., miketaylr.com/photobooth/), then it should not be displayed as miketaylr.com//photobooth//
+test that the useragent header is being correct set from the -A flag...not sure how. maybe display it in title or something.

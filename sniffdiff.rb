@@ -48,9 +48,9 @@ end
 # maybe http://api.html5please.com/ or something? 
 get %r{(\w+)\/(\w+)\/((?:https?://)?[\S]+)} do | one, two, url|
   cleanurl = url.gsub(/^(https?:)?\//, '\1//')
-  sdiff = `sdiff #{fetch(one, cleanurl)} #{fetch(two, cleanurl)}`
-
-  erb :result, :locals => {:jank => sdiff.encode(:xml => :text), :url => cleanurl}
+  sdiff = `sdiff #{fetch(one, cleanurl)} #{fetch(two, cleanurl)} --strip-trailing-cr -w 175`
+  
+  erb :result, :locals => {:jank => sdiff.encode!(:xml => :text, :universal_newline => true), :url => cleanurl}
 end
 
 #get 'platform' do

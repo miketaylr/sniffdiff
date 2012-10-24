@@ -1,14 +1,12 @@
-<h1>Sniff Diff Usage</h1>
-<p>This application is controlled entirely via the URL. For example, navigate to <a href="/firefox/opera/miketaylr.com">[app.com]/firefox/opera/miketaylr.com</a>.</p>
-<p>[user agent code] / [user agent code] / [url]</p>
-<p>Possible user agent codes are:</p>
+<h1>SniffDiff Usage</h1>
+<p>This application is controlled entirely via the URL. For example, navigate to <a href="/firefox/opera/miketaylr.com">/firefox/opera/miketaylr.com</a>.</p>
+<p>[user agent shortname] / [user agent shortname] / [url]</p>
+<p>Possible user agent shortnames are:</p>
 <ul>
+  <li>chrome</li>
   <li>firefox</li>
+  <li>ie</li>
   <li>opera</li>
   <li>safari</li>
-  <li>ie</li>
-  <li>chrome</li>
 </ul>
-<p>idea, once the results are shown for a given page, allow user to select a different platform from a little bar header. everything will default to windows, but you can select mac, and it will do some XHR magic to resniff and display it. no need to change url, since it's just the platform.</p>
-<p>so the get method will need to check if there's any get params. if so, tweak the platform and return the stuff.</p>
-<p>Sniff Diff is on github. Get the code here. Copyright <%= Time.new.year %>.
+<p>SniffDiff is on <a href="http://github.com/miketaylr/sniffdiff">github</a>. Copyright 1980 - <%= Time.new.year %>.

@@ -1,36 +1,43 @@
 require 'rubygems'
 require 'sinatra'
-require 'sinatra/config_file'
 require 'sinatra/content_for'
-require 'securerandom' 
-
-config_file "config.yml"
+require 'securerandom'
+require 'pygments'
+require 'yaml'
 
 helpers do
+  
   # adds the version number into the ua string
-  def uanum(version_number, ua_string)
-    ua_string.sub!(/\{#\}/, version_number) 
+  # def uanum(version_number, ua_string)
+  #   ua_string.sub!(/\{#\}/, version_number) 
+  # end
+  
+  def get_ua_string(code)
+    #is this mega inefficient?
+    #look up the ua string
+    uas = YAML.load_file('./user-agents.yml')
+    uas[code]
   end
   
-  def fetch(ua, url) 
+  def fetch(code, url) 
+    ua = get_ua_string(code)
     # curl options:
     # -i return headers with the response body
-    # -# suppress the fancy progress bar
     # -s suppress output (including errors). might be a terrible ideas. 
     # -A custom user agent
-    #
-    page = `curl -i -# -s -A "#{ua}" #{url}`
+    page = `curl -isA "#{ua}" #{url}`
     file = store(page)
   end
 
   def store(page)
+    #create a temporary page to store http response
     name = "tmp/" + SecureRandom.hex + ".txt"
     File.open(name, "w") do |f|
       f.puts page
     end
+    #return the tempfile name
     name
   end
-
 end
 
 get '/' do
@@ -40,24 +47,30 @@ end
 not_found do
   erb :'404', :locals => {:url => url }
 end
-# ideas: if there's a number after the UA param,
-# use that in the UA string. seems a little messy, but useful
-# so like, /firefox2/safari5.1/whatever.com
-# question: what does it default to if you don't? most current?
-# is there an api that lists the most current browser version?
-# maybe http://api.html5please.com/ or something? 
-get %r{(\w+)\/(\w+)\/((?:https?://)?[\S]+)} do | one, two, url|
+
+get %r{(safari|firefox|opera|chrome|ie)\/(safari|firefox|opera|chrome|ie)\/((?:https?:\/\/)?\S+)} do | one, two, url|
+  #remove extra slash
   cleanurl = url.gsub(/^(https?:)?\//, '\1//')
+  #call sdiff
   sdiff = `sdiff #{fetch(one, cleanurl)} #{fetch(two, cleanurl)} --strip-trailing-cr -w 175`
+  #make the results look pretty
+  page = Pygments.highlight(sdiff.encode!(:universal_newline => true))
+  style = Pygments.css
   
-  erb :result, :locals => {:jank => sdiff.encode!(:xml => :text, :universal_newline => true), :url => cleanurl}
+  #render result template
+  erb :result, :locals => {
+    :one => one, 
+    :two => two,
+    :url => cleanurl, 
+    :styles => style, 
+    :jank => page
+  }
 end
 
 #get 'platform' do
-  #look at get get params, and referer header maybe. return the actual content here, no need to render a 
+  #look at get get params, and referer header maybe. return the content to be injected via xhr, no need to render a 
   #template.
-  
-  # i don't remember what this is supposed to be :S
+  #should be a corresponding select box at top of page to set platform param
 #end
 
 

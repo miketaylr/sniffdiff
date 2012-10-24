@@ -1,4 +1,9 @@
 <% content_for :title do %>
-<title>sniff diffing: <%= url %></title>
+<title><%= one %> / <%= two %>: <%= url %></title>
+<% end %>
+<% content_for :style do %>
+<style>
+<%= styles %>
+</style>
 <% end %>
 <pre><%= jank %></pre>

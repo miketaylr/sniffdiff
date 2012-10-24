@@ -5,7 +5,7 @@ require 'securerandom'
 require 'pygments'
 require 'yaml'
 
-@@uas = YAML.load_file('./user-agents.yml')
+@@uas = YAML.load_file('user-agents.yml')
 
 helpers do
   
@@ -18,14 +18,14 @@ helpers do
     @@uas[code]
   end
   
-  def fetch(code, url) 
+  def fetch(code, url, write_to_disk=true) 
     ua = get_ua_string(code)
     # curl options:
     # -i return headers with the response body
     # -s suppress output (including errors). might be a terrible idea. 
     # -A custom user agent
     page = `curl -isA "#{ua}" #{url}`
-    store(page)
+    store(page) if write_to_disk
   end
 
   def store(page)
@@ -58,12 +58,16 @@ get %r{(safari|firefox|opera|chrome|ie)\/(safari|firefox|opera|chrome|ie)\/((?:h
   
   #render result template
   erb :result, :locals => {
-    :one => one, 
-    :two => two,
-    :url => cleanurl, 
+    :one    => one, 
+    :two    => two,
+    :url    => cleanurl, 
     :styles => style, 
-    :jank => page
+    :jank   => page
   }
+end
+
+get %r{(safari|firefox|opera|chrome|ie)\/((?:https?:\/\/)?\S+)} do | one, url |
+  raise "implement me!"
 end
 
 #get 'platform' do
@@ -71,5 +75,3 @@ end
   #template.
   #should be a corresponding select box at top of page to set platform param
 #end
-
-

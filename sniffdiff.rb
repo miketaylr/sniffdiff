@@ -5,6 +5,8 @@ require 'securerandom'
 require 'pygments'
 require 'yaml'
 
+@@uas = YAML.load_file('./user-agents.yml')
+
 helpers do
   
   # adds the version number into the ua string
@@ -13,20 +15,17 @@ helpers do
   # end
   
   def get_ua_string(code)
-    #is this mega inefficient?
-    #look up the ua string
-    uas = YAML.load_file('./user-agents.yml')
-    uas[code]
+    @@uas[code]
   end
   
   def fetch(code, url) 
     ua = get_ua_string(code)
     # curl options:
     # -i return headers with the response body
-    # -s suppress output (including errors). might be a terrible ideas. 
+    # -s suppress output (including errors). might be a terrible idea. 
     # -A custom user agent
     page = `curl -isA "#{ua}" #{url}`
-    file = store(page)
+    store(page)
   end
 
   def store(page)

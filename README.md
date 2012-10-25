@@ -9,14 +9,11 @@ A work in progress, with failing tests and everything!
 * `gem install sinatra-contrib`
 
 ### Running tests
-```
-cd test
-ruby test.rb
-```
+`rake test`
 
 ### Starting the app 
 
-`ruby sniffdiff.rb`
+`rake run` (or just `rake`)
 
 #### TODO
 

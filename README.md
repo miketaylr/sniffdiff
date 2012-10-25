@@ -6,7 +6,8 @@ A work in progress, with failing tests and everything!
 * Ruby 1.9.2+
 * [rubygems](http://rubyforge.org/frs/?group_id=126)
 * `gem install sinatra`
-* `gem install sinatra-contrib`
+* `gem install pygments.rb`
+* `gem install rake`
 
 ### Running tests
 `rake test`

@@ -5,7 +5,7 @@ require 'securerandom'
 require 'pygments'
 require 'yaml'
 
-@@uas = YAML.load_file('user-agents.yml')
+$uas = YAML.load_file('./user-agents.yml')
 
 helpers do
   
@@ -15,7 +15,7 @@ helpers do
   # end
   
   def get_ua_string(code)
-    @@uas[code]
+    $uas[code]
   end
   
   def fetch(code, url, write_to_disk=true) 

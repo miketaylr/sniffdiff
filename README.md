@@ -22,11 +22,8 @@ A work in progress, with failing tests and everything!
 * Be able to set custom string
 * Be able to change version
 * Unminify html?
-* Make sure I've got all the right Syntax highlighting CSS
 * Show requests headers
 * More Tests (and fix two failures/errors)
-* get all the right default ua strings (windows/mac), right now it's mixed
-* need a rake task to clean up all the tmp files.
 * for a single ua name, app.com/firefox/site.com, just show the curl result
 
 ideas: if there's a number after the UA param,

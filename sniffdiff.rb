@@ -54,14 +54,12 @@ get %r{(safari|firefox|opera|chrome|ie)\/(safari|firefox|opera|chrome|ie)\/((?:h
   sdiff = `sdiff #{fetch(one, cleanurl)} #{fetch(two, cleanurl)} --strip-trailing-cr -w 175`
   #make the results look pretty
   page = Pygments.highlight(sdiff.encode!(:universal_newline => true))
-  style = Pygments.css
   
   #render result template
   erb :result, :locals => {
     :one    => one, 
     :two    => two,
-    :url    => cleanurl, 
-    :styles => style, 
+    :url    => cleanurl,
     :jank   => page
   }
 end

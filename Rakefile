@@ -18,3 +18,9 @@ task :clean do
   puts "Deleting temporary files."
   sh %{ rm tmp/* }
 end
+
+desc "Deploy to Heroku"
+task :deploy do
+  puts "FIRE ZE MISSLES"
+  sh %{ git push heroku master }
+end

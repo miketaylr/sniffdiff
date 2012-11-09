@@ -1,5 +1,5 @@
 firefox: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0" 
-opera:   "Opera/9.80 (Macintosh; Intel Mac OS X 10.8.2; U; en) Presto/2.10.289 Version/12.02"
+opera:   "Opera/9.80 (Macintosh; Intel Mac OS X 10.8.2; U; en) Presto/2.10.388 Version/12.11"
 safari:  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.14 (KHTML, like Gecko) Version/6.0.1 Safari/536.26.14"
 chrome:  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17"
 ie:      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)"

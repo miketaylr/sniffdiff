@@ -1,6 +1,4 @@
 require 'rubygems'
-require "bundler/setup"
-
 require 'sinatra'
 require 'sinatra/content_for'
 require 'pygments.rb'
@@ -42,6 +40,10 @@ helpers do
 end
 
 get '/' do
+  erb :index
+end
+
+get '/index.html' do
   erb :index
 end
 

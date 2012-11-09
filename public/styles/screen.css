@@ -1,4 +1,12 @@
 /* app specific styles go here */
+body {padding-top:40px;}
+
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container { 
+  width: auto !important;
+}
+
+#ua-shortname-one {margin-left:10px;}
+#ua-shortname-two {margin-left:600px;}
 
 /* pygments */
 .highlight .hll { background-color: #ffffcc }

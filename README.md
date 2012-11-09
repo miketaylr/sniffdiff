@@ -5,9 +5,11 @@ A work in progress, with failing tests and everything!
 ###Dependencies:
 * Ruby 1.9.2+
 * [rubygems](http://rubyforge.org/frs/?group_id=126)
-* `gem install sinatra`
-* `gem install pygments.rb`
-* `gem install rake`
+* [bundler](http://gembundler.com/)
+
+One you have those:
+`gem install bundler`
+`bundle install`
 
 ### Running tests
 `rake test`

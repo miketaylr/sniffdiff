@@ -1,6 +1,9 @@
 require 'rubygems'
+require "bundler/setup"
+
 require 'sinatra'
 require 'sinatra/content_for'
+require 'pygments.rb'
 require 'securerandom'
 require 'yaml'
 

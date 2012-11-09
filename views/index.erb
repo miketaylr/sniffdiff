@@ -1,12 +1,61 @@
-<h1>SniffDiff Usage</h1>
-<p>This application is controlled entirely via the URL. For example, navigate to <a href="/firefox/opera/miketaylr.com">/firefox/opera/miketaylr.com</a>.</p>
-<p>[user agent shortname] / [user agent shortname] / [url]</p>
-<p>Possible user agent shortnames are:</p>
-<ul>
-  <li>chrome</li>
-  <li>firefox</li>
-  <li>ie</li>
-  <li>opera</li>
-  <li>safari</li>
-</ul>
-<p>SniffDiff is on <a href="http://github.com/miketaylr/sniffdiff">github</a>. Copyright 1980 - <%= Time.new.year %>.
+<!-- so **many** divs, yay frameworks! -->
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="page-header">
+        <h1>SniffDiff <small>sdiff frontend for the web</small></h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span9">
+      <h2>Usage</h2>
+      <p>For now, this application is controlled entirely via the URL. For example, navigate to one of the following:</p> 
+      <ul>
+        <li><a href="/firefox/opera/miketaylr.com">/firefox/opera/miketaylr.com</a></li>
+        <li><a href="/chrome/ie/http://echo.opera.com">/chrome/ie/http://echo.opera.com</a></li>
+      </ul>
+      <p>i.e.,</p>
+      <p class="text-info well">[user agent shortname] / [user agent shortname] / [url]</p>
+      <p>Possible user agent shortnames and their current (and soon to be out-of-date) values are:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>shortname</th>
+            <th>ua string</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>chrome</td>
+            <td><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17</code></td>
+          </tr>
+          <tr>
+            <td>firefox</td>
+            <td><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0</code></td>
+          </tr>
+          <tr>
+            <td>ie</td>
+            <td><code>Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)</code></td>
+          </tr>
+          <tr>
+            <td>opera</td>
+            <td><code>Opera/9.80 (Macintosh; Intel Mac OS X 10.8.2; U; en) Presto/2.10.289 Version/12.02</code></td>
+          </tr>
+          <tr>
+            <td>safari</td>
+            <td><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.14 (KHTML, like Gecko) Version/6.0.1 Safari/536.26.14</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>In the future, you will be able to specify specific versions of user agent strings, and some mobile UAs will be added. There are lots of bugs, so file issues or send pull-requests.</p>
+      <p>Copyright 1980 - <%= Time.new.year %>.</p>
+    </div>
+    <div class="span3">
+      <ul class="nav nav-tabs nav-stacked">
+        <li><a href="http://github.com/miketaylr/sniffdiff">Github</a></li>
+        <li><a href="https://github.com/miketaylr/sniffdiff/issues">File Issues</a></li>        
+      </ul>
+    </div>
+  </div>
+</div>

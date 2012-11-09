@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+<html>
 <head>
-<link rel="icon" href="/favicon.ico">
-<%= yield_content :title %>
-<link rel="stylesheet" href="/styles/screen.css">
-<link rel="stylesheet" href="/styles/bootstrap.min.css">
-</head>
+  <link rel="icon" href="/favicon.ico">
+  <%= yield_content :title %>
+  <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/screen.css">
+  </head>
 <body>
 <%= yield %>
 <script src="/app.js"></script>
 </body>
+</html>
